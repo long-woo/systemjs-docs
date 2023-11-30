@@ -65,7 +65,7 @@ This is useful for referencing assets by URL in a way that is supported in many 
 const assetUrl = new URL('./asset.ext', import.meta.url);
 ```
 
-#### import.meta.resolve: (id, parentUrl?) => Promise<String>
+#### import.meta.resolve: (id, parentUrl?) => Promise\<String>
 
 > `import.meta.resolve` currently has no specification or browser implementation and may still change.
 

@@ -4,11 +4,13 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "SystemJS Document",
   description: "Unofficial SystemJS documentation.",
+  ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Change Log', link: 'https://github.com/systemjs/systemjs/blob/main/CHANGELOG.md' }
     ],
 
     sidebar: [
@@ -22,7 +24,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/systemjs/systemjs' }
     ]
   }
 })
