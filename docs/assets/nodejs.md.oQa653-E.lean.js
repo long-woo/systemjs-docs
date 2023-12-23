@@ -1,0 +1,1 @@
+import{_ as s,o as i,c as a,R as n}from"./chunks/framework.RpFkmAtX.js";const g=JSON.parse('{"title":"NodeJS Loader","description":"","frontmatter":{},"headers":[],"relativePath":"nodejs.md","filePath":"nodejs.md"}'),t={name:"nodejs.md"},h=n("",23),e=[h];function l(p,k,r,d,E,o){return i(),a("div",null,e)}const F=s(t,[["render",l]]);export{g as __pageData,F as default};
