@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   outDir: '../docs',
+  base: '/systemjs-docs/',
   title: "SystemJS Document",
   description: "Unofficial SystemJS documentation.",
   ignoreDeadLinks: true,
