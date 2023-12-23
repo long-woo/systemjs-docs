@@ -23,4 +23,3 @@ jobs:
         git add .
         git commit -m "deploy"
         git push --force-with-lease
-
