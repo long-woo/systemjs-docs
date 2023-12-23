@@ -1,3 +1,11 @@
+---
+sidebar: false
+
+next:
+  text: 'Hooks'
+  link: '/hooks'
+---
+
 ## SystemJS API
 
 ### Core API (s.js & system.js)

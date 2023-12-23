@@ -8,11 +8,8 @@ hero:
   tagline: Dynamic ES module loader.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Getting Started
+      link: /nodejs
 
 features:
   - title: Module Loader

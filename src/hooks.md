@@ -1,3 +1,15 @@
+---
+sidebar: false
+
+prev:
+  text: 'API'
+  link: '/api'
+
+next:
+  text: 'FAQ'
+  link: '/error'
+---
+
 ## Loader Hooks
 
 ### Hooking the Loader

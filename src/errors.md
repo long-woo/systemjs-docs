@@ -1,10 +1,12 @@
+---
+sidebar: false
+---
+
 # SystemJS Errors
 
 This page lists the SystemJS errors that you may encounter.
 
-## 1
-
-### Import Map contains invalid JSON
+## 1. Import Map contains invalid JSON
 
 SystemJS Error #1 occurs when you have a `<script type="systemjs-importmap"></script>` element in your HTML page that has invalid JSON content (See [import maps documentation](https://github.com/systemjs/systemjs/blob/master/docs/import-maps.md)).
 
@@ -24,9 +26,7 @@ A common mistake that causes this a trailing comma on the last module in the imp
 
 Note that this error also can occur for external import maps (those with `src=""` attribute). Check the network tab of your browser devtools to verify that the response body for the external import map is valid json.
 
-## 2
-
-### Module did not instantiate
+## 2. Module did not instantiate
 
 SystemJS Error #2 occurs when a module fails to instantiate.
 
@@ -36,9 +36,7 @@ Instantiation refers to downloading and executing the code for a module. The ins
 
 SystemJS has various methods of instantiating modules, generally involving either a `<script>` or `fetch()`. A module should generally call [`System.register()`](/docs/api.md#systemregisterdeps-declare) during top-level execution, as the primary means of instantiating itself. Custom module instantiation can be implemented by [hooking System.instantiate](/docs/hooks.md#instantiateurl-parenturl---promise).
 
-## 3
-
-### Unable to load module
+## 3. Unable to load module
 
 SystemJS Error #3 occurs when a module could not be downloaded and/or executed.
 
@@ -52,9 +50,7 @@ Here are common reasons why a module could not be loaded:
 - **The url is correct, web server running, CORS enabled, but host check fails**. This one is usually specific to webpack-dev-server, which has a [host check](https://webpack.js.org/configuration/dev-server/#devserverdisablehostcheck). You should disable that host check to be able to load modules cross origin.
 - **The javascript file was successfully downloaded, but failed during initial, top-level, execution**. A syntax error, errant function call, or any other javascript error that occurs during initial execution could cause the module to fail to load. This error is from within the module itself and can be found in the browser console.
 
-## 4
-
-### Invalid content-type header
+## 4. Invalid content-type header
 
 SystemJS Error #4 occurs when SystemJS attempted to load a module with [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), but the [content-type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) HTTP response header was invalid.
 
@@ -69,15 +65,11 @@ SystemJS checks the HTTP [Response object](https://developer.mozilla.org/en-US/d
 
 To diagnose the problem, identify which module failed to load. Then check the browser console and network tab of your devtools to find the HTTP status. In order for the module to successfully load, the status needs to be >= 200 and < 300.
 
-## 5
-
-### AMD require is not supported
+## 5. AMD require is not supported
 
 SystemJS Error #5 occurs when you attempt to use the [AMD require() function](https://github.com/amdjs/amdjs-api/wiki/require). SystemJS supports much of AMD's core functionality, but does not currently support all of the extensions to AMD, including AMD require. This could be implemented in a custom extension for your organization, if needed.
 
-## 6
-
-### Named AMD modules require the named-register extra
+## 6. Named AMD modules require the named-register extra
 
 SystemJS Error #6 occurs when you attempt to register a named AMD module, but have not included the [named-register extra](/README.md#extras).
 
@@ -97,9 +89,7 @@ If none of those apply to your situation, consider adding the named-register ext
 <script src="https://unpkg.com/systemjs/dist/extras/named-register.js"></script>
 ```
 
-## 7
-
-### Failed to fetch module - wrong HTTP status
+## 7. Failed to fetch module - wrong HTTP status
 
 SystemJS Error #7 occurs when SystemJS attempted to load a module with [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), but the HTTP response status was not >= 200 and < 300.
 
@@ -111,9 +101,7 @@ SystemJS checks the HTTP [Response](https://developer.mozilla.org/en-US/docs/Web
 
 To diagnose the problem, identify which module failed to load. Then check the browser console and network tab of your devtools to find the HTTP status. In order for the module to successfully load, the status needs to be >= 200 and < 300.
 
-## 8
-
-### Unable to resolve bare specifier
+## 8. Unable to resolve bare specifier
 
 SystemJS Error #8 occurs when you attempt to load a module that doesn't have a URL associated with it.
 
@@ -163,9 +151,7 @@ To fix this warning, you may either use [import maps](/docs/import-maps.md) or [
 </script>
 ```
 
-## 9
-
-### Invalid call to AMD define
+## 9. Invalid call to AMD define
 
 SystemJS Error #9 occurs when the global `define` function was called with invalid arguments.
 
@@ -230,17 +216,13 @@ define("asdfasdf");
 
 This sections lists the SystemJS warnings that you may encounter.
 
-## W1
-
-### Unable to resolve bare specifier
+## W1. Unable to resolve bare specifier
 
 SystemJS Warning #1 occurs when there is an error resolving a bare specifier on the right hand side of an import map. See [Error #8](#8) for more detail on fixing bare specifier errors.
 
 Import maps are fully parsed and resolved at initialization time, with validation warnings output in line with the import maps specification. Any resolution errors in the import map are displayed as validation warnings and those import map entries are then ignored in the resolution process.
 
-## W2
-
-### Invalid package target - should have trailing slash
+## W2. Invalid package target - should have trailing slash
 
 SystemJS Warning #W2 occurs when an import map [trailing-slash package path mapping](https://github.com/WICG/import-maps#packages-via-trailing-slashes) on the left hand side with a trailing slash maps into a target address without a trailing slash (`/`).
 
@@ -268,9 +250,7 @@ Trailing slash path mappings for packages are a way of mapping any subpath of th
 
 SystemJS Warning #W2 is logged by SystemJS to implement [Step 6.1 of this part of the import maps spec](https://wicg.github.io/import-maps/#sort-and-normalize-a-specifier-map).
 
-## W3
-
-### ID is not a valid URL to set in the registry
+## W3. ID is not a valid URL to set in the registry
 
 SystemJS Warning #W3 occurs when you call `System.set(id, module)` with an invalid id.
 
@@ -291,9 +271,7 @@ System.set('http://example.com/foo.js', { some: 'value' });
 ```
 
 
-## W4
-
-### Unable to fetch external Import Map
+## W4. Unable to fetch external Import Map
 
 SystemJS Warning #W4 occurs when it failed downloading an external import map via `fetch()`.
 
@@ -306,9 +284,7 @@ System.js treats failing import maps as a warning. It skips the failed import ma
 <script type="systemjs-importmap" src="https://hostname.invalid/importmap.json"></script>
 ```
 
-## W5
-
-### Import Map contains invalid JSON
+## W5. Import Map contains invalid JSON
 
 SystemJS Warning W5 occurs when you have a `<script type="systemjs-importmap"></script>` element in your HTML page that has invalid JSON content (See [import maps documentation](https://github.com/systemjs/systemjs/blob/master/docs/import-maps.md)).
 
@@ -328,9 +304,7 @@ A common mistake that causes this a trailing comma on the last module in the imp
 
 Note that this error also can occur for external import maps (those with `src=""` attribute). Check the network tab of your browser devtools to verify that the response body for the external import map is valid json.
 
-## W6
-
-### Include named-register.js for full named define support
+## W6. Include named-register.js for full named define support
 
 SystemJS Warning W6 occurs when a named [AMD module](https://en.wikipedia.org/wiki/Asynchronous_module_definition) is registered with SystemJS without having included the [SystemJS named-register.js extra](https://github.com/systemjs/systemjs/blob/master/dist/extras/named-register.js).
 

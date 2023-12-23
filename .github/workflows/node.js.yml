@@ -3,6 +3,8 @@ name: Bun Build
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+      branches: [ main ]
 
 jobs:
   build:
@@ -15,4 +17,13 @@ jobs:
       uses: oven-sh/setup-bun@v1
       
     - run: bun i
-    - run: bun run build:docs
+    - run: bun run docs:build
+
+    - run: |
+        # git init
+        # git config user.name loong.woo
+        # git config user.email longwunet@outlook.com
+        git add .
+        git commit -m "deploy"
+        git push --force-with-lease
+
