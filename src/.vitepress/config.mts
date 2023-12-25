@@ -23,7 +23,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Using SystemJS', link: '/nodejs' },
-          { text: 'System.register', link: '/System-register' },
+          { text: 'System.register', link: '/system-register' },
           {text: 'Import Maps', link: '/import-maps'},
           {text: 'Module Types', link: '/module-types'},
         ]
