@@ -7,7 +7,7 @@ prev:
 
 next:
   text: 'FAQ'
-  link: '/error'
+  link: '/errors'
 ---
 
 ## Loader Hooks
